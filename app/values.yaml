@@ -27,10 +27,18 @@ service-1:
         - yarn
         - dev
       run:
-        - yarn
+        - npm
         - install
         - '&&'
-        - yarn
+        - npm
+        - run
+        - dev
+      dev:
+        - npm
+        - install
+        - '&&'
+        - npm
+        - run
         - dev
     configPath: conf/nocalhost.yaml
     env: null
