@@ -1,37 +1,37 @@
 service-1:
   env:
-  - name: ENV_NAME
-    value: main
-  - name: ENV_DOMAIN
-    value: app-sngzeuxhf.forkmain.cloud
+    - name: ENV_NAME
+      value: main
+    - name: ENV_DOMAIN
+      value: app-sngzeuxhf.forkmain.cloud
   fullnameOverride: service-1
   image:
     repository: ghcr.io/conaniskenan/vscode-plugin-test
-    tag: main
+    tag: a3ff215
   imagePullSecrets:
-  - name: app-docker
+    - name: app-docker
   ingress:
     className: nginx
     enabled: true
     hosts:
-    - host: app-sngzeuxhf.forkmain.cloud
-      paths:
-      - path: /
-        pathType: ImplementationSpecific
+      - host: app-sngzeuxhf.forkmain.cloud
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
   nocalhost:
     command:
       debug:
-      - yarn
-      - install
-      - '&&'
-      - yarn
-      - dev
+        - yarn
+        - install
+        - '&&'
+        - yarn
+        - dev
       run:
-      - yarn
-      - install
-      - '&&'
-      - yarn
-      - dev
+        - yarn
+        - install
+        - '&&'
+        - yarn
+        - dev
     configPath: conf/nocalhost.yaml
     env: null
     gitURL: https://github.com/conaniskenan/vscode-plugin-test.git
@@ -40,8 +40,8 @@ service-1:
     language: javascript
     patches: null
     persistentVolumeDirs:
-    - capacity: 20Gi
-      path: /home/nocalhost-dev
+      - capacity: 20Gi
+        path: /home/nocalhost-dev
     remoteDebugPort: 9009
   service:
     port: 3000
